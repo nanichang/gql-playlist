@@ -2,7 +2,7 @@ const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const schema = require('./schema/schema');
 const mongoose = require('mongoose');
-
+require('dotenv').config();
 const app = express();
 const cors = require('cors');
 
@@ -20,6 +20,6 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true
 }));
 
-app.listen(3000, () => {
-  console.log('Server listening for request on port 3000');
+app.listen(process.env.PORT || 3030, () => {
+  console.log('Server listening for request on port 3030');
 });
